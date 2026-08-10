@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Netlify auto-installs @netlify/plugin-nextjs for detected Next.js projects,
+# but pinning it here keeps CI/local `netlify build` behavior identical to
+# what the dashboard runs, and avoids relying on autodetection silently
+# changing across Netlify platform updates.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

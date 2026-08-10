@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #fafaf8;
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Card & container styles */
+@layer components {
+  .card {
+    @apply bg-paper-raised border border-line rounded-lg;
+  }
+
+  .card-sm {
+    @apply bg-paper-raised border border-line rounded-md;
+  }
+
+  /* Ledger stamp aesthetic */
+  .ledger-index {
+    @apply font-mono text-xs text-slate;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  /* Status badge */
+  .status-badge {
+    @apply inline-flex items-center justify-center rounded-full font-mono text-xs font-bold px-2 py-1;
+    transform: rotate(-15deg);
+    width: fit-content;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .status-new {
+    @apply bg-blue-100 text-blue-900;
+  }
+
+  .status-contacted {
+    @apply bg-yellow-100 text-yellow-900;
+  }
+
+  .status-interested {
+    @apply bg-green-100 text-green-900;
+  }
+
+  .status-converted {
+    @apply bg-emerald-100 text-emerald-900;
+  }
+
+  .status-lost {
+    @apply bg-red-100 text-red-900;
+  }
+
+  /* Tag pill */
+  .tag-pill {
+    @apply inline-flex items-center gap-1 px-2 py-1 rounded text-xs font-medium;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-3 py-2 border border-line rounded-md bg-paper-raised text-ink outline-none transition-colors focus:border-ink;
+  }
+
+  .input-sm {
+    @apply px-2 py-1.5 text-sm;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-md font-medium text-sm transition-colors outline-none;
+  }
+
+  .btn-primary {
+    @apply bg-ink text-white hover:bg-slate;
+  }
+
+  .btn-secondary {
+    @apply bg-paper-raised border border-line text-ink hover:bg-slate hover:text-white;
+  }
+
+  .btn-sm {
+    @apply px-2 py-1 text-xs;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    @apply sticky top-0 h-screen bg-ink text-white p-6 flex flex-col gap-6 border-r border-line;
+    overflow-y: auto;
+  }
+
+  .sidebar-item {
+    @apply px-4 py-2 rounded-md text-sm transition-colors hover:bg-slate;
+  }
+
+  .sidebar-item.active {
+    @apply bg-slate;
+  }
+
+  /* Grid & layout */
+  .container-main {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* Utility for transitions */
+@layer utilities {
+  .transition-fast {
+    @apply transition-all duration-200;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
